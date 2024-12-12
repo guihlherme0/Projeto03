@@ -90,8 +90,8 @@ def buscar_eventos(eventos):
       evento_encontrado = True
       print(f"{evento["titulo"]}, {evento["data"]}, {evento["local"]}, {evento["valor"]}")
       break
-    
-  print("evento não encontrado")
+  else:
+      print("evento não encontrado")
   return evento_encontrado
 
 def listar_eventos(eventos):
