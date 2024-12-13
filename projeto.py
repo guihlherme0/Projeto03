@@ -59,7 +59,7 @@ while op != 0:
             elif(opcao_menu == 4):
               fu.remover_evento(email, eventos)
             elif(opcao_menu == 5):
-              fu.inscrever_evento(email, eventos, bloqueados)
+              fu.inscrever_evento(email, eventos, bloqueados, usuarios)
             elif opcao_menu == 6:
               fu.adicionar_participante_evento(email, eventos)
             elif opcao_menu == 7:

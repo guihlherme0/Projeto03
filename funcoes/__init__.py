@@ -33,10 +33,10 @@ def informacoes_usu():
   return nome, email, senha, senha2, 
     
 def verificar_idade(idade, usuarios, email):  
-  if idade > 13:
-    print(f"{usuarios[email]['nome']} você está na idade permitida")
-  else:
+  if idade < 13:
     print('você está abaixo da idade permitida')
+  else:
+    print(f"{usuarios[email]['nome']} você está na idade permitida")
   return idade
   
 def login_arquivo(email, senha):
@@ -118,15 +118,14 @@ def remover_evento(email, eventos):
   else:
     print("Evento não encontrado ou você não tem permissão para removê-lo.")
   
-def inscrever_evento(email, eventos, bloqueados):
+def inscrever_evento(email, eventos, bloqueados, usuarios):
   nome_evento = input('Digite o nome do evento para se inscrever: ')
   for evento in eventos:
     if evento['titulo'] == nome_evento:
       idade = int(input("Digite sua idade: "))
       if idade < 13:
-        print("Você não tem idade suficiente para se inscrever neste evento.")
         bloqueados.append(email)
-        verificar_idade(email)
+        verificar_idade(idade, usuarios, email)
       else:
         if email not in evento['participantes']:
           evento['participantes'].append(email)
