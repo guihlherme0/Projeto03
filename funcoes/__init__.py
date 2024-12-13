@@ -124,8 +124,8 @@ def inscrever_evento(email, eventos, bloqueados, usuarios):
     if evento['titulo'] == nome_evento:
       idade = int(input("Digite sua idade: "))
       if idade < 13:
-        bloqueados.append(email)
         verificar_idade(idade, usuarios, email)
+        bloqueados.append(email)
       else:
         if email not in evento['participantes']:
           evento['participantes'].append(email)
